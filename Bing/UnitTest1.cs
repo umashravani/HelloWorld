@@ -9,6 +9,7 @@ namespace Bing
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
