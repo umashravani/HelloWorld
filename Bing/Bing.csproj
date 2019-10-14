@@ -56,6 +56,7 @@
     <Compile Include="Tests\BingSearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Differentclass.cs" />
+    <Compile Include="Tests\SeeniumActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.Threading;
 using Bing.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -10,12 +12,13 @@ namespace Bing
     [TestClass]
      public class BingSearchTest: Differentclass
     {
+        
         //public IWebDriver driver;
         [TestInitialize]
         public void TestFirst()
         {
-            BingSearchTest call = new BingSearchTest();
-            call.TestInit();
+            //BingSearchTest call = new BingSearchTest();
+            //call.TestInit();
         }
 
     [TestMethod]
@@ -37,11 +40,15 @@ namespace Bing
 
 
         }
-    [TestCleanup]
+        
+        [TestCleanup]
         public void TestClean()
         {
            
             driver.Quit();
         }
+
+
     }
+   
 }
