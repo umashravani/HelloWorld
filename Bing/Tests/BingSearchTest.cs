@@ -12,16 +12,14 @@ namespace Bing
     [TestClass]
      public class BingSearchTest: Differentclass
     {
-        
-        //public IWebDriver driver;
-        [TestInitialize]
-        public void TestFirst()
-        {
-            //BingSearchTest call = new BingSearchTest();
-            //call.TestInit();
-        }
 
-    [TestMethod]
+        public By BingSearchField= By.ClassName("b_searchboxSubmit");
+        public By ImagesLink = By.LinkText("Images");
+        public By SuggestedImage = By.ClassName("suggestion-title");
+        public By BingSearchBox = By.ClassName("b_searchbox");
+        string BingSearchKeyword = "computer";
+
+        [TestMethod]
     public void TestMethod1()
     {
             string actualtitle = driver.Title;
@@ -33,21 +31,30 @@ namespace Bing
             }
             else
             {
+                
                 Console.WriteLine("Title is not matching with expected value");
             }
 
-
-
+          
 
         }
-        
-        [TestCleanup]
-        public void TestClean()
+
+        [TestMethod]
+        public void BingVerifySearchResult()
         {
-           
-            driver.Quit();
-        }
+            driver.Manage().Window.Maximize();
+            //Thread.Sleep(10000);
+            var obj = new SeleniumActions(driver);
+            obj.TypeText(BingSearchBox, BingSearchKeyword);
+            obj.ClickSearchIcon(BingSearchField);
+             obj.ClickLink(ImagesLink);
+            var text = obj.GetText(SuggestedImage);
+            Console.WriteLine(text);
 
+
+
+
+        }
 
     }
    
