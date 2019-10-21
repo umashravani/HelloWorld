@@ -56,7 +56,9 @@
     <Compile Include="Tests\BingSearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Common.cs" />
-    <Compile Include="Tests\SeleniumActions.cs" />
+    <Compile Include="Utilities\JsonUtil.cs" />
+    <Compile Include="Utilities\SeleniumActions.cs" />
+    <Compile Include="Utilities\TextFileUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

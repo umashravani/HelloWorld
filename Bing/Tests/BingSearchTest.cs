@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Threading;
 using Bing.Tests;
+using Bing.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -19,23 +20,37 @@ namespace Bing
         public By BingSearchBox = By.ClassName("b_searchbox");
         string BingSearchKeyword = "computer";
 
-        [TestMethod]
-    public void TestMethod1()
-    {
-            string actualtitle = driver.Title;
-            String expectedTitle = "";
-        //  Assert(actualtitle== expectedTitle);
-            if (actualtitle.Contains(expectedTitle))
-            {
-                Console.WriteLine("Title is matching with expected value");
-            }
-            else
-            {
-                
-                Console.WriteLine("Title is not matching with expected value");
-            }
+        public string readfile = @"C:\Users.txt";
+       public string writefile = @"D:\Account.txt";
+        public string text = "A class is the most powerful data type in C#. Like a structure, " +
+                      "a class defines the data and behavior of the data type. ";
+        public string readjsonfile= @"D:\person.json";
 
+
+
+        [TestMethod]
+        public void FileReadTest()
+        {
+            var temp = new TextFileUtil();
+            temp.ReadTextFile(readfile);
+ 
+         
+        }
+        [TestMethod]
+        public void FileWriteTest()
+        {
+            var temp = new TextFileUtil();
+            temp.WriteToFile(writefile,text);
+
+
+        }
+        [TestMethod]
+        public void JsonReadTest()
+        {
+            var temp = new JsonUtil();
+            temp.ReadJsonFile(readjsonfile);
           
+
 
         }
 
@@ -43,7 +58,6 @@ namespace Bing
         public void BingVerifySearchResult()
         {
             driver.Manage().Window.Maximize();
-            //Thread.Sleep(10000);
             var obj = new SeleniumActions(driver);
             obj.TypeText(BingSearchBox, BingSearchKeyword);
             obj.ClickSearchIcon(BingSearchField);
